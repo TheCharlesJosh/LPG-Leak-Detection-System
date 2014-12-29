@@ -9,11 +9,14 @@ Another addition to the Internet of Things, this time utilizing an MQ-6 Gas Sens
 
 ### RGB LED
 Red pin - Pin 11
+
 Green pin - Pin 10
+
 Blue pin - Pin 9
 
 ### Neocene 2T3542142 Bipolar Stepper Motor 
 Control pin 1 - Pin 5
+
 Control pin 2 - Pin 6
 
 ### MQ-6 Gas Sensor (mounted on a [Pololu Carrier for MQ Gas Sensors](http://www.pololu.com/product/1479) with a load resistance of 10K)
@@ -24,7 +27,7 @@ Out - Analog Pin 0 (A0)
 To configure, clone this repository, and check the contents of misc/housekeeping.sh. This is important.
 
 #### housekeeping.sh (Default)
-```
+```Shell
 #!/bin/sh
 
 echo "nameserver 8.8.4.4" >> /etc/resolv.conf
@@ -56,9 +59,6 @@ To run the program instead,
 node main.js
 ```
 
-Alternatively, you may load the project into Intel XDK IoT Edition and upload, install, and build it from there (recommended).
-The XDK will run it on startup automatically.
-
 ## Features
 
 1. Detects leaks (event can be defined by the user through the control panel) and actuates immediately via stepper motor.
@@ -71,6 +71,7 @@ The XDK will run it on startup automatically.
 2. The program assumes that the environment in which the device is booted on has no detectable trace of LPG (during calibration).
 3. The stepper motor occassionaly staggers, resulting in missed steps, subsequently, a misaligned valve (possibly due to blocking code).
 4. The time in the Intel Galileo must be calibrated before the program starts. A shell script (misc/housekeeping.sh) takes care of this.
+
 	 The shell script must be placed in (/etc/networking/if-up.d/).
 5. Prior to usage, if the user has no RTC (real time clock) installed, the user must build and install ntp from http://www.ntp.org/ to deal with the time in the logs. Else, this is not required.
 
