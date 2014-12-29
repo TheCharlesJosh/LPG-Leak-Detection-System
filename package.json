@@ -2,9 +2,10 @@
   "name": "LPG-Leak-Detection-System",
   "version": "0.0.0",
   "description": "LPG/Propane Gas Leak Detector, Web Interface, and Stepper Actuator for Intel Galileo ver 1",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "node index"
+    "preinstall": "./misc/post-install.sh",
+    "start": "pm2 start main.js --name 'LPG Leak Detector'"
   },
   "repository": {
     "type": "git",
