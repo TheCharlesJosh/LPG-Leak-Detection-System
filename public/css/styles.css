@@ -1,0 +1,270 @@
+@font-face {
+    font-family: 'PT Sans';
+    src: url('../fonts/PTS55F-webfont.eot');
+    src: url('../fonts/PTS55F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/PTS55F-webfont.woff') format('woff'),
+         url('../fonts/PTS55F-webfont.ttf') format('truetype'),
+         url('../fonts/PTS55F-webfont.svg#pt_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PT Sans';
+    src: url('../fonts/PTS75F-webfont.eot');
+    src: url('../fonts/PTS75F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/PTS75F-webfont.woff') format('woff'),
+         url('../fonts/PTS75F-webfont.ttf') format('truetype'),
+         url('../fonts/PTS75F-webfont.svg#pt_sansbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BP Mono';
+    src: url('../fonts/BPmono-webfont.eot');
+    src: url('../fonts/BPmono-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/BPmono-webfont.woff') format('woff'),
+         url('../fonts/BPmono-webfont.ttf') format('truetype'),
+         url('../fonts/BPmono-webfont.svg#bpmonoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  background: rgba(245, 245, 245, 1);
+  font-family: 'PT Sans';
+}
+
+header {
+  background-color: rgba(32, 120, 140, 1);
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+footer {
+  background-color: rgba(104, 150, 150, 1);;
+  text-align: center;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 1);
+  padding: 1em;
+}
+
+header ul {
+  list-style: none;
+}
+
+header ul li {
+  display: inline;
+}
+
+header a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 1.1em;
+  transition: all 0.1s;
+}
+
+header a b {
+  color: rgba(255, 255, 255, 1);
+}
+
+header a:hover {
+  background-color: rgba(23, 80, 115, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+#content {
+  padding: 50px 5%;
+}
+
+h2 {
+  text-align: center;
+  font-size: 3em;
+  font-weight: lighter;
+  color: rgba(50, 50, 50, 1);
+  margin-bottom: 0;
+}
+
+#curr-stat {
+  color: rgba(23, 80, 115, 1);
+}
+
+h3 {
+  color: rgba(50, 50, 50, 1);
+  font-size: 2em;
+}
+
+h4, p {
+  text-align: center;
+  font-size: 1.25em;
+  font-weight: normal;
+  color: rgba(50, 50, 50, 1);
+  margin: 0;
+}
+
+p {
+  text-align: left;
+  padding-left: 2em;
+}
+
+#notes {
+  padding-left: 1em;
+  font-weight: bold;
+}
+
+h4 a {
+  text-decoration: none;
+}
+
+.anchor {
+  display: block;
+  height: 50px;
+  margin-top: -50px;
+  visibility: hidden;
+}
+
+#machine-graph {
+  width: 100%;
+  height: 350px;
+  margin-bottom: 4em;
+}
+
+#machine-log {
+  background-color: rgba(55, 67, 87, 1);
+  height: 10em;
+  padding: 1.5em;
+  width: 90%;
+  margin: auto;
+  overflow: auto;
+  border: 12px solid rgba(75, 87, 107, 1);
+}
+
+#machine-log ul {
+  font-family: 'BP Mono', monospace;
+  list-style: none;
+  color: rgba(210, 210, 210, 1);
+  border-top: 1px dashed rgba(115, 127, 147, 0.5);
+  border-bottom: 1px dashed rgba(115, 127, 147, 0.5);
+  padding: 0;
+  margin: 0;
+}
+
+.console-info {
+  color: rgba(135, 231, 120, 1);
+  font-weight: bold;
+}
+
+.console-warn {
+  color: rgba(231, 120, 120, 1);
+  font-weight: bold;
+}
+
+#machine-log li {
+  line-height: 1.5em;
+  padding: 0.2em 0;
+  border-top: 1px dashed rgba(115, 127, 147, 0.5);
+  border-bottom: 1px dashed rgba(115, 127, 147, 0.5);
+}
+
+#machine-opt li {
+  list-style: none;
+  padding: 0.75em 0;
+  font-size: 1.5em;
+}
+
+#machine-opt input {
+  margin-right: 0.25em;
+}
+
+#machine-opt .rangeslider {
+  width: 25%;
+  display: inline-block;
+}
+
+.checkbox {
+  display: inline-block;
+  cursor: pointer;
+  color: rgba(50, 50, 50, 1);
+}
+
+input[type=checkbox] {
+  display:none; 
+}
+
+.checkbox:before {
+  /*font-size: 40px; */
+  font-size: 14px; 
+  margin: 0 10px 5px 0; 
+  line-height: 18px;
+  padding-top: 5px;
+  content: "OFF";
+  display: inline-block;
+  width: 28px;
+  height: 23px;
+  vertical-align: middle;
+  background-color: rgba(229, 67, 67, 1);
+  color: rgba(243, 243, 243, 1);
+  text-align: center;
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8); 
+  border-radius: 3px;
+}
+
+input[type=checkbox]:checked + .checkbox:before {
+  /*content: "\2713";*/
+  content: "ON";
+  background-color: rgba(47, 209, 86, 1);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+  /*font-size: 14px;*/
+}
+
+.range {
+  margin: 0 0 15px 10px; 
+  color: rgba(50, 50, 50, 1);
+}
+
+#machine-histo {
+  height: 25.7em;
+  width: 95%;
+  margin: auto;
+  overflow: auto;
+  background-color: rgba(211, 83, 83, 1);
+}
+
+#machine-histo li {
+  list-style: none;
+  padding: 1em;
+}
+
+/*#machine-histo li:nth-child(odd) {
+  background-color: rgba(186, 72, 72, 1);
+  
+}
+
+#machine-histo li:nth-child(even) {
+  background-color: rgba(211, 83, 83, 1);
+}*/
+
+#machine-histo li:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#machine-histo .time {
+  display: block;
+  font-size: 1em;
+  color: rgba(216, 175, 175, 1);
+}
+
+#machine-histo .to {
+  color: rgba(216, 175, 175, 0.75);
+}
+
+#machine-histo .duration {
+  display: block;
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 1);
+}

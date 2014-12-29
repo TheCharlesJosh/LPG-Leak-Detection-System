@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/rangeslider.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>LPG Leak Detector System - Control Panel</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href=""><b>LPG Leak Detector System</b></a>
+        </li>
+        <li><a href="#rt-graph">Graph</a>
+        </li>
+        <li><a href="#console">Console</a>
+        </li>
+        <li><a href="#options">Options</a>
+        </li>
+        <li><a href="#leak-history">Leak History</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div id="content">
+    <h2><span>Status: </span><span id="curr-stat"><%- verbose %></span></h2>
+    <h4 id="curr-desc"><%- description %></h4>
+    <span class="anchor" id="rt-graph"></span>
+    <h3>Real-time Graph</h3>
+    <article id="machine-graph">
+      <div id="chartContainer" width="1100px" height="350px">
+        <!-- <canvas id="canvas" width="1100px" height="350px"></canvas> -->
+        <!-- <canvas id="canvas" width="1100px" height="300px"></canvas> -->
+        <!-- <canvas id="canvas" height="300px"></canvas> -->
+      </div>
+    </article>
+    <p id="notes">Notes</p>
+    <p>The concentration scope of the sensor is 200 ppm (parts per million) to 10 000 ppm of LPG.</p>
+    <p>Anything less than 200 ppm or greater than 10 000 ppm is considered out of range and might be inaccurate.</p>
+    <p>Because of this, values greater than the maximum are capped at 10 000 ppm.</p>
+    <span class="anchor" id="console"></span>
+    <h3>Console</h3>
+    <article id="machine-log">
+      <ul></ul>
+    </article>
+    <span class="anchor" id="options"></span>
+    <h3>Options</h3>
+    <article id="machine-opt">
+      <ul>
+        <li>
+          <input type="checkbox" name="board-switch" value="board-switch" id="board-switch" <%=on ? 'checked' : '' %>>
+          <label class="checkbox" for="board-switch">Leak Detector</label>
+        </li>
+        <li>
+          <input type="checkbox" name="board-startup" value="board-startup" id="board-startup" <%=startup ? 'checked' : '' %>>
+          <label class="checkbox" for="board-startup">Start sensing on startup</label>
+        </li>
+        <li>
+          <input type="range" name="leak-threshold" id="leak-threshold" min="200" max="10000" step="10" value="<%= leak ? leak : 5000%>">
+          <label class="range" for="leak-threshold">Set the threshold gas concentration (
+            <output class="slide-val">5000</output> ppm)</label>
+        </li>
+        <li>
+          <input type="range" name="leak-duration" min="0.0" max="20.0" step="0.25" id="leak-duration" value="<%= duration ? duration : 5%>">
+          <label class="range" for="leak-duration">Set the duration to consider a leak (
+            <output class="slide-val">5000</output> seconds)</label>
+        </li>
+      </ul>
+    </article>
+    <span class="anchor" id="leak-history"></span>
+    <h3>Leak History</h3>
+    <article id="machine-histo">
+      <li><span class="duration">Nothing to see here.</span><span class="time">If you believe there must be something in here, try refreshing the page.</span>
+      </li>
+    </article>
+  </div>
+  <footer>
+    LPG Leak Detector System - Bayanihan Labs 2014
+    <iframe src="/offline.html" style="display: none"></iframe>
+  </footer>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/rangeslider.min.js"></script>
+  <script src="/js/socket.io.js"></script>
+  <script src="/js/jquery.canvasjs.min.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

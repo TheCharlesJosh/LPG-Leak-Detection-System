@@ -1,0 +1,32 @@
+{
+  "name": "LPG-Leak-Detection-System",
+  "version": "0.0.0",
+  "description": "LPG/Propane Gas Leak Detector, Web Interface, and Stepper Actuator for Intel Galileo ver 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheCharlesJosh/LPG-Leak-Detection-System"
+  },
+  "keywords": [
+    "lpg",
+    "propane",
+    "gas",
+    "leak"
+  ],
+  "author": "Charles Josh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheCharlesJosh/LPG-Leak-Detection-System/issues"
+  },
+  "homepage": "https://github.com/TheCharlesJosh/LPG-Leak-Detection-System",
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "express": "^4.10.6",
+    "galileo-io": "^0.5.4",
+    "socket.io": "^1.2.1",
+    "winston": "^0.8.3"
+  }
+}

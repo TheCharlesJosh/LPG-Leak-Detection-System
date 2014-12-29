@@ -1,0 +1,26 @@
+CACHE MANIFEST
+CACHE:
+/js/jquery.min.js
+/js/rangeslider.min.js
+/js/socket.io.js
+/css/normalize.css
+/css/rangeslider.css
+/css/styles.css
+/fonts/BPmono-webfont.eot
+/fonts/BPmono-webfont.svg
+/fonts/BPmono-webfont.ttf
+/fonts/BPmono-webfont.woff
+/fonts/PTS55F-webfont.eot
+/fonts/PTS55F-webfont.svg
+/fonts/PTS55F-webfont.ttf
+/fonts/PTS55F-webfont.woff
+/fonts/PTS75F-webfont.eot
+/fonts/PTS75F-webfont.svg
+/fonts/PTS75F-webfont.ttf
+/fonts/PTS75F-webfont.woff
+
+NETWORK:
+*
+
+FALLBACK:
+/ /offline.html
