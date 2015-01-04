@@ -8,15 +8,13 @@ Another addition to the Internet of Things, this time utilizing an MQ-6 Gas Sens
 ## How to use
 
 ### RGB LED
-Red pin - Pin 11
-
+Red pin - Pin 8
 Green pin - Pin 10
-
-Blue pin - Pin 9
+Blue pin - Pin 11
+Ground pin - Pin 9
 
 ### Neocene 2T3542142 Bipolar Stepper Motor 
 Control pin 1 - Pin 5
-
 Control pin 2 - Pin 6
 
 ### MQ-6 Gas Sensor (mounted on a [Pololu Carrier for MQ Gas Sensors](http://www.pololu.com/product/1479) with a load resistance of 10K)
@@ -67,18 +65,19 @@ node main.js
 
 ## Caveats
 
-1. The sensor's scope is limited to 200-10000 ppm. Anything outside the scope is considered inaccurate.
-2. The program assumes that the environment in which the device is booted on has no detectable trace of LPG (during calibration).
-3. The stepper motor occassionaly staggers, resulting in missed steps, subsequently, a misaligned valve (possibly due to blocking code).
-4. The time in the Intel Galileo must be calibrated before the program starts. A shell script (misc/housekeeping.sh) takes care of this.
+1. Several pre-installation steps are required for the internal program to work properly.
+For setups without a real-time clock installed, the user must build, install, and configure ntp, as well as have it run automatically during startup (a script is provided to automate this).
+For setups connected to the router via Ethernet, additional nameservers must be added for the Galileo to properly connect to the Internet (a script is provided to automate this.)
+For setups connected to the router via WiFi, additional drivers may be required.
+2. During startup, the setup is assumed to be in a place free from significant flammable gas concentrations (i.e., the LPG stove is not in use, etc.). The first few seconds is used to calibrate the sensor and provide near-accurate data.
+3. The Gas Sensor is limited to concentrations of 200 to 10 000 parts per million (ppm). Data outside this scope is considered inaccurate. Because of this, the web interface caps the data to 10 000 ppm, meaning, registered data that exceed this value is treated as 10 000 ppm.
+4. During operation, the stepper motor staggers, missing a few steps, which may result in an incompletely closed gas valve. Code refactoring to reduce the instances of blocking code may be done.
+5. During tests, a generic AC-DC adaptor used to supply 12 volts to the stepper motor overheated over long durations of usage. A better power supply is required. 
 
-	 The shell script must be placed in (/etc/networking/if-up.d/).
-5. Prior to usage, if the user has no RTC (real time clock) installed, the user must build and install ntp from http://www.ntp.org/ to deal with the time in the logs. Else, this is not required.
+## To do
 
-## To-do
-
-1. Create a 3D model to connect the stepper motor to the LPG valve.
-2. Identify specific code that triggers the stepper staggering and refactor it to be non-blocking.
-3. Add more features to the control panel.
-4. If possible, allow remote access to the control panel. 
-5. Build a mobile app.
+1. Create, print and bind a 3D model to the stepper motor and the gas valve.
+2. Using the 3D printed model, fine-tune the stepper motor to properly open and close the valve.
+3. Add more features to the web interface (i.e., manually open and close the valve, disable automatic closing etc.).
+4. Create and fabricate an Intel Galileo-specific shield with the stepper motor circuit on-board, as well as header pins for the sensor and the stepper motor.
+5. Develop a mobile application for easy access, optionally, remote access to the control panel may also be configured. 

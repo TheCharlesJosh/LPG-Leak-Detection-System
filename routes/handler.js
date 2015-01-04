@@ -25,12 +25,14 @@ var handler = function (app, express, path, io, gasSensor, rootDir) {
   process.once('SIGUSR2', function () {
     console.log("Goodbye nodemon.");
     io.emit('console message', 'INFO: Nodemon restart.');
+    gasSensor.exit();
     process.kill(process.pid, 'SIGUSR2');
   });
 
   process.once('SIGINT', function () {
     console.log("Goodbye.");
     io.emit('console message', 'INFO: LPG detection system down.');
+    gasSensor.exit();
     process.kill(0);
   });
 }
