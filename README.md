@@ -8,13 +8,13 @@ Another addition to the Internet of Things, this time utilizing an MQ-6 Gas Sens
 ## How to use
 
 ### RGB LED
-Red pin - Pin 8
-Green pin - Pin 10
-Blue pin - Pin 11
-Ground pin - Pin 9
+Red pin - Pin 8  
+Green pin - Pin 10  
+Blue pin - Pin 11  
+Ground pin - Pin 9  
 
 ### Neocene 2T3542142 Bipolar Stepper Motor 
-Control pin 1 - Pin 5
+Control pin 1 - Pin 5  
 Control pin 2 - Pin 6
 
 ### MQ-6 Gas Sensor (mounted on a [Pololu Carrier for MQ Gas Sensors](http://www.pololu.com/product/1479) with a load resistance of 10K)
@@ -66,7 +66,7 @@ node main.js
 ## Caveats
 
 1. Several pre-installation steps are required for the internal program to work properly.
-For setups without a real-time clock installed, the user must build, install, and configure ntp, as well as have it run automatically during startup (a script is provided to automate this).
+For setups without a real-time clock installed, the user must build, install, and configure ntp, as well as have it run automatically during startup (a script is provided to automate this).  
 For setups connected to the router via Ethernet, additional nameservers must be added for the Galileo to properly connect to the Internet (a script is provided to automate this.)
 For setups connected to the router via WiFi, additional drivers may be required.
 2. During startup, the setup is assumed to be in a place free from significant flammable gas concentrations (i.e., the LPG stove is not in use, etc.). The first few seconds is used to calibrate the sensor and provide near-accurate data.
